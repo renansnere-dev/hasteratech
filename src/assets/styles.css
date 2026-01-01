@@ -1,17 +1,5 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 10%; /* Diminuí um pouco o padding para ficar mais slim */
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  position: sticky; /* Opcional: faz o header ficar fixo no topo ao rolar */
-  top: 0;
-  z-index: 1000;
-}
-
 .hero-flex-container {
   display: flex;
   align-items: center; /* Alinha verticalmente a logo com o centro do texto */
@@ -53,11 +41,11 @@
 }
 
 .hero-logo-container {
-  margin-bottom: 20px; /* Espaço entre a logo e o título h1 */
+  margin-bottom: 10px; /* Espaço entre a logo e o título h1 */
 }
 
 .hero-logo {
-  height: 250px; /* Um pouco maior que no header para dar destaque */
+  height: 150px; /* Um pouco maior que no header para dar destaque */
   width: auto;
   filter: brightness(0) invert(1); /* Mantém a logo branca se o fundo for escuro/degradê */
   opacity: 0.9;
@@ -69,48 +57,6 @@
   flex-direction: column;
   align-items: center;
   max-width: 800px;
-}
-
-.header-logo {
-  height: 100px; /* Altura ideal para um header padrão */
-  width: auto;  /* Mantém a proporção da imagem */
-  display: block;
-}
-.nav-links { display: flex; list-style: none; gap: 20px; position: relative; }
-.nav-links a { 
-  text-decoration: none; 
-  color: #160101; 
-  font-weight: 500;
-  position: relative;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-  padding: 5px 10px;
-  border: 2px solid transparent;
-}
-
-.nav-links a:hover {
-  color: #fff;
-}
-
-.nav-links a::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 10px;
-  padding: 2px;
-  background: linear-gradient(to right, #007bff, #8a2be2);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.nav-links a:hover::before {
-  opacity: 1;
-  -webkit-mask: none;
-  mask: none;
 }
 
 .hero {
@@ -125,8 +71,8 @@
   padding: 50px 20px;
 }
 
-.hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
-.hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9; }
 
 /* Estilos dos Cards */
 .hero-cards {
