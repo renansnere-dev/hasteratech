@@ -80,9 +80,9 @@
 
 /* Hero Section */
 .hero-section {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 2rem;
+  padding: 50px 1rem;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
@@ -107,7 +107,7 @@
 
 .hero-text h1 span {
   /* O gradiente de cores */
-  background: linear-gradient(90deg, #646cff, #a855f7, #646cff);
+  background: linear-gradient(90deg, #737afa, #c891fc, #737afa);
   background-size: 200% auto;
   
   /* Faz o fundo ficar "dentro" das letras */
@@ -128,7 +128,7 @@
   align-items: center;
   position: relative;
   width: 100%;
-  height: 400px; /* Ajuste a altura conforme necessário */
+  height: 250px; /* Ajuste a altura conforme necessário */
 }
 
 /* Container Principal da Animação */
@@ -308,7 +308,7 @@
   }
 }
 .hero-text p {
-  color: var(--text-dim);
+  color: var(--text-main);
   font-size: 1.2rem;
   max-width: 500px;
   margin-bottom: 40px;
@@ -720,3 +720,248 @@
   color: var(--primary);
   margin-right: 10px;
 }
+
+.drag-area-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cards-to-drag {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 350px;
+}
+
+.drag-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  cursor: grab;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.drag-card small {
+  font-size: 0.7rem;
+  color: #00f2fe;
+  margin-top: 5px;
+}
+
+.selection-zone {
+  position: relative;
+  z-index: 1;
+  width: 400px;
+  min-height: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px dashed rgba(0, 242, 254, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.selected-item {
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  color: #0a0a0c;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.selected-item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.btn-contact-final {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: #00f2fe;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.interactive-section {
+  padding: 100px 20px;
+  background: radial-gradient(circle at center, rgba(0, 242, 254, 0.05), transparent);
+}
+
+.interactive-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.cards-to-drag {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 500px;
+  overflow-y: auto; /* Adiciona scroll se houver muitos cards */
+  padding-right: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Customizando o Scrollbar dos cards */
+.cards-to-drag::-webkit-scrollbar {
+  width: 4px;
+}
+.cards-to-drag::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.3);
+  border-radius: 10px;
+}
+
+.drag-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  cursor: grab;
+  transition: border-color 0.3s;
+}
+
+.drag-card:active {
+  cursor: grabbing;
+}
+
+.drag-card:hover {
+  border-color: rgba(0, 242, 254, 0.5);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text strong {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.card-text small {
+  font-size: 0.7rem;
+  color: #00f2fe;
+}
+
+/* Overlay que escurece o fundo */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* Caixa do Modal */
+.modal-content {
+  background: #0a0a0c;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 0 50px rgba(0, 242, 254, 0.2);
+}
+
+.modal-content h3 {
+  color: #00f2fe;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+/* Inputs do Modal */
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-content input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.modal-content input:focus {
+  border-color: #00f2fe;
+}
+
+/* Botões do Modal */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-submit {
+  flex: 2;
+  background: #00f2fe;
+  color: #0a0a0c;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-submit:hover { transform: scale(1.02); }
+.btn-cancel:hover { background: rgba(255, 255, 255, 0.05); }

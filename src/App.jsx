@@ -5,6 +5,7 @@ import { loadSlim } from "@tsparticles/slim";
 import logo from "./assets/logo.png";
 import logofooter from "./assets/logo-footer.png";
 import "./App.css"; 
+import ServicosInterativos from "./components/ServicosInterativos";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -65,6 +66,13 @@ function App() {
     detectRetina: true,
   };
 
+  const scrollToPortfolio = () => {
+    const element = document.getElementById("portfolio-interativo");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="app-container">
       {/* Camada das Partículas */}
@@ -87,7 +95,6 @@ function App() {
               <nav className="nav-menu">
                 <a href="/">Início</a>
                 <a href="#servicos">Serviços</a>
-                <a href="#sobre">Sobre</a>
               </nav>
             </div>
           </header>
@@ -98,8 +105,9 @@ function App() {
               <h1>Transformando ideias em <span>experiências</span> digitais.</h1>
               <p>Criamos soluções de alto impacto com a tecnologia mais moderna do mercado.</p>
               <div className="cta-group">
-                <button className="btn-primary">Começar Projeto</button>
-                <button className="btn-secondary">Ver Portfólio</button>
+                <button onClick={scrollToPortfolio} className="btn-primary">
+                  Começar Projeto
+                </button>
               </div>
             </div>
             
@@ -164,6 +172,10 @@ function App() {
             </div>
           </section>
 
+          <section id="portfolio-interativo" className="interactive-section">
+            <ServicosInterativos />
+          </section>
+
           {/* Botão flutuante do WhatsApp */}
           <a 
             href="https://wa.me/5581985639579?text=Olá! Gostaria de falar com um consultor." 
@@ -191,12 +203,11 @@ function App() {
                   <h4>Navegação</h4>
                   <a href="/">Início</a>
                   <a href="#servicos">Serviços</a>
-                  <a href="#sobre">Sobre</a>
                 </div>
                 <div className="footer-column">
                   <h4>Contato</h4>
-                  <p>hastera.tech@gmail.com</p>
-                  <p>+55 (81) 98563-9579</p>
+                  <p>E-mail: hastera.tech@gmail.com</p>
+                  <p>Telefone: +55 (81) 98563-9579</p>
                   <p>CNPJ: 63.836.230/0001-05</p>
                 </div>
               </div>
