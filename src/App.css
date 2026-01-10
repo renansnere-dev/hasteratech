@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+  --primary: #646cff;
+  --primary-hover: #535bf2;
+  --bg-dark: #0f172a;
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+}
+
+.app-wrapper {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Header Moderno com Efeito Blur */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 50px; /* Ajuste o tamanho aqui */
+  width: auto;
+}
+
+.logo-footer {
+  height: 150px; /* Ajuste o tamanho aqui */
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.brand-name {
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -1px;
+}
+
+.brand-name span {
+  color: var(--primary);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dim);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--text-main);
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 2rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.badge {
+  background: rgba(100, 108, 255, 0.1);
+  color: var(--primary);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 20px 0;
+  color: var(--text-main); /* Cor padrão para o resto do texto */
+}
+
+.hero-text h1 span {
+  /* O gradiente de cores */
+  background: linear-gradient(90deg, #646cff, #a855f7, #646cff);
+  background-size: 200% auto;
+  
+  /* Faz o fundo ficar "dentro" das letras */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Torna a cor da letra transparente para o fundo aparecer */
+  -webkit-text-fill-color: transparent;
+  
+  /* Opcional: Uma animação para o gradiente se mexer */
+  animation: shine 4s linear infinite;
+}
+
+/* Animação de Tecnologia (Círculos Pulsantes) */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 400px; /* Ajuste a altura conforme necessário */
+}
+
+.tech-animation {
+  position: relative;
+  /* Aumentamos de 250px para 450px */
+  width: 450px; 
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  /* Linha um pouco mais grossa para destacar no tamanho maior */
+  border: 5px solid var(--primary); 
+  opacity: 0;
+  animation: pulse-ring 4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Ajuste do ponto central para acompanhar o tamanho */
+.dot {
+  width: 50px; 
+  height: 50px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  /* Brilho (glow) mais intenso */
+  box-shadow: 0 0 30px var(--primary), 0 0 60px var(--primary);
+}
+
+.circle-1 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+.circle-2 {
+  width: 80%;
+  height: 80%;
+  animation-delay: 1.3s; /* Atraso para criar efeito cascata */
+}
+.circle-3 {
+  width: 60%;
+  height: 60%;
+  animation-delay: 2.6s;
+}
+
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5; /* Aparece rápido no início */
+  }
+  100% {
+    /* Aumentamos de 1.2 para 1.8 para os círculos abrirem mais */
+    transform: scale(1.8); 
+    opacity: 0;
+  }
+}
+
+/* Opcional: Remover ou ajustar o .abstract-shape se ele estiver atrapalhando */
+.abstract-shape {
+  display: none; /* Esconda a forma abstrata antiga se quiser */
+  /* Ou posicione-o de forma diferente */
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+.hero-text p {
+  color: var(--text-dim);
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+/* Botões */
+.cta-group {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Elemento Visual Abstrato */
+.abstract-shape {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, var(--primary), #a855f7);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 60px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-card h3 { font-size: 2rem; color: var(--primary); }
+.stat-card p { color: var(--text-dim); }
+
+/* Ajustes para Tablets e Celulares */
+@media (max-width: 968px) {
+  .header-content {
+    padding: 1rem;
+  }
+
+  .nav-menu {
+    gap: 15px;
+  }
+
+  /* Faz o Hero virar uma coluna */
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 1.5rem;
+    gap: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem; /* Diminui o título no mobile */
+  }
+
+  .hero-text p {
+    margin: 0 auto 30px auto;
+  }
+
+  .cta-group {
+    justify-content: center;
+  }
+
+  /* Ajusta a animação para não ocupar tanto espaço vertical */
+  .hero-visual {
+    height: 300px;
+    order: -1; /* Coloca a animação ACIMA do texto no mobile (opcional) */
+  }
+
+  .tech-animation {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Ajusta a seção de status */
+  .stats {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 0;
+  }
+}
+
+/* Ajustes para celulares muito pequenos */
+@media (max-width: 480px) {
+  .nav-menu {
+    display: none; /* Esconde o menu simples para um visual mais limpo (ou use um menu hambúrguer) */
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%; /* Botões ocupam a largura toda no celular */
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+}
+
+.footer {
+  background-color: #0b1120; /* Tom ligeiramente mais escuro que o bg principal */
+  padding: 80px 2rem 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-brand p {
+  color: var(--text-dim);
+  margin-top: 20px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.footer-column h4 {
+  color: var(--text-main);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.footer-column a, .footer-column p {
+  display: block;
+  color: var(--text-dim);
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+/* Ajuste Responsivo para o Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-column a:hover {
+    transform: none; /* Remove o efeito lateral no mobile */
+  }
+}
+
+.services {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 2rem;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.services-header h2 {
+  font-size: 2.5rem;
+  margin-top: 15px;
+}
+
+.services-header h2 span {
+  color: var(--primary);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  /* Efeito Glassmorphism */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  background: rgba(100, 108, 255, 0.08);
+  border-color: var(--primary);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+.service-card p {
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* Responsivo para os Cards */
+@media (max-width: 968px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-header h2 {
+    font-size: 2rem;
+  }
+}
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  text-decoration: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.whatsapp-content {
+  display: flex;
+  align-items: center;
+  background-color: #25d366;
+  padding: 8px 8px 8px 20px;
+  border-radius: 50px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.whatsapp-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.whatsapp-icon {
+  background-color: white;
+  color: #25d366;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Animação de pulso */
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulse-whatsapp 2s infinite;
+}
+
+/* Efeito Hover */
+.whatsapp-btn:hover .whatsapp-content {
+  transform: scale(1.05) translateY(-5px);
+  background-color: #20ba5a;
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+/* Keyframes para o pulso de atenção */
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Ajuste Mobile */
+@media (max-width: 480px) {
+  .whatsapp-text {
+    display: none; /* Esconde o texto no mobile para não tapar o conteúdo */
+  }
+  .whatsapp-content {
+    padding: 8px;
+  }
+  .whatsapp-btn {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+.services-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 2rem;
+  text-align: center;
+}
+
+.services-grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin: 60px 0;
+}
+
+.service-card-detailed {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.service-card-detailed .icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.service-card-detailed ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.service-card-detailed li {
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-card-detailed li::before {
+  content: "→";
+  color: var(--primary);
+  margin-right: 10px;
+}
