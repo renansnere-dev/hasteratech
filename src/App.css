@@ -131,53 +131,155 @@
   height: 400px; /* Ajuste a altura conforme necessário */
 }
 
-.tech-animation {
-  position: relative;
-  /* Aumentamos de 250px para 450px */
-  width: 450px; 
-  height: 450px;
+/* Container Principal da Animação */
+.futuristic-text-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  /* Linha um pouco mais grossa para destacar no tamanho maior */
-  border: 5px solid var(--primary); 
-  opacity: 0;
-  animation: pulse-ring 4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-/* Ajuste do ponto central para acompanhar o tamanho */
-.dot {
-  width: 50px; 
-  height: 50px;
-  background-color: var(--primary);
-  border-radius: 50%;
+  justify-content: center;
+  padding: 2rem;
   position: relative;
-  z-index: 2;
-  /* Brilho (glow) mais intenso */
-  box-shadow: 0 0 30px var(--primary), 0 0 60px var(--primary);
 }
 
-.circle-1 {
-  width: 100%;
-  height: 100%;
-  animation-delay: 0s;
-}
-.circle-2 {
-  width: 80%;
-  height: 80%;
-  animation-delay: 1.3s; /* Atraso para criar efeito cascata */
-}
-.circle-3 {
-  width: 60%;
-  height: 60%;
-  animation-delay: 2.6s;
+/* Texto Pulsante com Gradiente */
+.pulsing-text {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 12px;
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    #00f2fe,
+    #4facfe,
+    #00f2fe
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Animações: Movimento do Gradiente + Pulsação Suave */
+  animation: 
+    shine 4s linear infinite,
+    softPulse 3s ease-in-out infinite;
+  
+  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3));
+  margin: 0;
+  text-transform: uppercase;
 }
 
+/* Indicador de Status Abaixo do Texto */
+.status-indicator {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'monospace';
+  color: rgba(223, 180, 248, 0.7);
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
+
+.blink-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00f2fe;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00f2fe;
+  animation: blink 1.5s infinite;
+}
+
+/* Keyframes das Animações */
+
+/* Faz o gradiente "correr" pelo texto */
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* Pulsação suave de escala e brilho */
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.3));
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.6));
+    opacity: 1;
+  }
+}
+
+/* Piscar do ponto de status */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .pulsing-text {
+    font-size: 3rem;
+    letter-spacing: 6px;
+  }
+}
+
+/* Mantenha o que já fizemos e adicione/ajuste estas partes: */
+
+.pulsing-text {
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: 10px;
+  color: transparent;
+  background: linear-gradient(90deg, #646cff, #a855f7, #646cff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Animações: Brilho constante + Entrada Suave */
+  animation: 
+    shine 4s linear infinite,
+    fadeInUp 0.8s ease-out forwards;
+  
+  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));
+  text-transform: uppercase;
+  min-width: 600px; /* Evita que o layout "pule" quando as palavras mudam de tamanho */
+  text-align: center;
+}
+
+/* Animação de entrada: a palavra sobe levemente e aparece */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Reajuste o container para garantir centralização */
+.futuristic-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+@media (max-width: 768px) {
+  .pulsing-text {
+    font-size: 2.5rem;
+    min-width: 100%;
+  }
+}
+
+@keyframes pulse {
+  from { opacity: 0.2; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.2); }
+}
 
 @keyframes pulse-ring {
   0% {
@@ -345,6 +447,8 @@
   background-color: #0b1120; /* Tom ligeiramente mais escuro que o bg principal */
   padding: 80px 2rem 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 2; /* Fica acima de tudo */
 }
 
 .footer-content {
