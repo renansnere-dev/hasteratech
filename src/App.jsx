@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const [init, setInit] = useState(false);
-  const words = ["INOVE", "TRANSFORME", "LIDERE"];
+  const words = ["INOVE", "ESCALE", "LIDERE"];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
