@@ -57,9 +57,9 @@ const handlePhoneChange = (e) => {
   return (
     <div className="portfolio-container">
       <div className="interactive-title">
-        <span className="badge">Budget Builder</span>
+        <span className="badge">Selecione os Serviços</span>
         <h2>Monte sua solução personalizada</h2>
-        <p>Arraste os cards para a direita para selecionar</p>
+        <p>Arraste os cards para a direita e faça seu orçamento</p>
       </div>
 
       <div className="drag-area-container">
@@ -70,7 +70,7 @@ const handlePhoneChange = (e) => {
               drag="x"
               dragConstraints={{ left: 0, right: 300 }}
               onDragEnd={(e, info) => handleDragEnd(e, info, s)}
-              whileDrag={{ scale: 1.05, zIndex: 10, boxShadow: "0px 10px 30px rgba(0,242,254,0.5)" }}
+              whileDrag={{ scale: 1.05, zIndex: 10, boxShadow: "0px 10px 30px rgba(227, 181, 236, 0.5)" }}
               className="drag-card"
             >
               <div className="card-content">

@@ -106,7 +106,7 @@ function App() {
               <p>Criamos soluções de alto impacto com a tecnologia mais moderna do mercado.</p>
               <div className="cta-group">
                 <button onClick={scrollToPortfolio} className="btn-primary">
-                  Começar Projeto
+                  Conhecer Serviços
                 </button>
               </div>
             </div>
